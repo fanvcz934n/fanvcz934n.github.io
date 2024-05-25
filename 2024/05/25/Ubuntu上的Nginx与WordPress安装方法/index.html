@@ -28,7 +28,7 @@
 
 <!-- Website rss -->
 
-<link rel="alternate" href="/default" title="Hexo2" >
+<link rel="alternate" href="/default" title="Phoenix" >
 
 
 <!-- Website favicon -->
@@ -65,7 +65,7 @@
   window.config = {"leancloud":{"app_id":null,"app_key":null,"server_url":null,"cdn":null},"toc":true,"fancybox":true,"latex":false};
 </script>
   
-  <title>Ubuntu上的Nginx与WordPress安装方法 - Hexo2</title>
+  <title>Ubuntu上的Nginx与WordPress安装方法 - Phoenix</title>
 
 <meta name="generator" content="Hexo 7.2.0"></head>
 
@@ -73,7 +73,7 @@
   <div class="scrollPercentage"></div>
   <div id="mobile-navbar" class="mobile-navbar">
   <div class="mobile-header-logo">
-    <a href="/." class="logo">Hexo2</a>
+    <a href="/." class="logo">Phoenix</a>
   </div>
   <div class="mobile-navbar-icon">
     <span></span>
@@ -92,12 +92,19 @@
         Home              </li>
     </a>
     
+    <a href="/ailinks">
+      <li class="mobile-menu-item">
+        
+        
+        AI links              </li>
+    </a>
+    
   </ul>
 </nav>
   <div class="container" id="mobile-panel">
     <header id="header" class="header">
       <div class="logo-wrapper">  
-  <a href="/." class="logo">Hexo2</a>  
+  <a href="/." class="logo">Phoenix</a>  
 </div>  
   
 <nav class="site-navbar">  
@@ -109,6 +116,15 @@
               
               
               Home  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/ailinks">  
+              
+              
+              AI links  
               
           </a>  
         </li>  
@@ -152,14 +168,15 @@
     
     <h2 id="系统环境"><a href="#系统环境" class="headerlink" title="系统环境"></a>系统环境</h2><p>Ubuntu 20.04.6 LTS (GNU&#x2F;Linux 5.4.0-153-generic aarch64)</p>
 <h4 id="1-更新-Ubuntu-环境"><a href="#1-更新-Ubuntu-环境" class="headerlink" title="1.更新 Ubuntu 环境"></a>1.更新 Ubuntu 环境</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt upgrade</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
 <h4 id="2-安装-Nginx"><a href="#2-安装-Nginx" class="headerlink" title="2.安装 Nginx"></a>2.安装 Nginx</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install nginx</span><br><span class="line">sudo systemctl status nginx</span><br></pre></td></tr></table></figure>
 <p>出现下图则说明nginx安装成功</p>
 <img src="/2024/05/25/Ubuntu%E4%B8%8A%E7%9A%84Nginx%E4%B8%8EWordPress%E5%AE%89%E8%A3%85%E6%96%B9%E6%B3%95/1716622975687.jpg" class="" title="图片">
 <h4 id="3-配置-UFW-如果需要"><a href="#3-配置-UFW-如果需要" class="headerlink" title="3.配置 UFW (如果需要)"></a>3.配置 UFW (如果需要)</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw allow &#x27;Nginx Full&#x27;</span><br><span class="line">sudo ufw status</span><br></pre></td></tr></table></figure>
 <h4 id="4-安装和配置-MySQL-数据库"><a href="#4-安装和配置-MySQL-数据库" class="headerlink" title="4.安装和配置 MySQL 数据库"></a>4.安装和配置 MySQL 数据库</h4><p>安装mysql然后进入mysql控制台</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install mysql-server</span><br><span class="line">sudo systemctl status mysql</span><br><span class="line">mysql -u root -p</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install mysql-server</span><br><span class="line">sudo systemctl status mysql</span><br><span class="line">mysql -u root -p</span><br></pre></td></tr></table></figure>
 <p>控制台创建新mysql的数据库和用户</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">CREATE DATABASE WordPress CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci; </span><br><span class="line">ALTER USER &#x27;root&#x27;@&#x27;localhost&#x27; IDENTIFIED WITH mysql_native_password BY &#x27;NewPassword&#x27;;</span><br><span class="line">FLUSH PRIVILEGES;</span><br><span class="line">EXIT;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">CREATE DATABASE WordPress CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci; </span><br><span class="line">ALTER USER &#x27;root&#x27;@&#x27;localhost&#x27; IDENTIFIED WITH mysql_native_password BY &#x27;NewPassword&#x27;;</span><br><span class="line">FLUSH PRIVILEGES;</span><br><span class="line">EXIT;</span><br></pre></td></tr></table></figure>
 <h4 id="5-安装-PHP"><a href="#5-安装-PHP" class="headerlink" title="5.安装 PHP"></a>5.安装 PHP</h4><p>这里安装PHP7.2为例子</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install php7.2-cli php7.2-fpm php7.2-mysql php7.2-json php7.2-opcache php7.2-mbstring php7.2-xml php7.2-gd php7.2-curl</span><br></pre></td></tr></table></figure>
 <p>安装完成后，PHP-FPM 将自动启动。这是一个支持缓存的 Fast CGI 进程管理器。</p>
@@ -169,9 +186,10 @@
 <p>改根目录和入口如下:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">root /var/www/html/sample.com;</span><br><span class="line">index index.html index.htm index.php; //这里没有php文件要加上index.php</span><br></pre></td></tr></table></figure>
 <p>改php传递配置如下:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">   # pass PHP scripts to FastCGI server</span><br><span class="line">#</span><br><span class="line">location ~ \.php$ &#123;</span><br><span class="line">	include snippets/fastcgi-php.conf;</span><br><span class="line">#</span><br><span class="line">#	# With php-fpm (or other unix sockets):</span><br><span class="line">	fastcgi_pass unix:/var/run/php/php7.2-fpm.sock;</span><br><span class="line">#	# With php-cgi (or other tcp sockets):</span><br><span class="line">	#fastcgi_pass 127.0.0.1:9000;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># pass PHP scripts to FastCGI server</span><br><span class="line">	#</span><br><span class="line">	location ~ \.php$ &#123;</span><br><span class="line">		include snippets/fastcgi-php.conf;</span><br><span class="line">	#</span><br><span class="line">	#	# With php-fpm (or other unix sockets):</span><br><span class="line">		fastcgi_pass unix:/var/run/php/php7.2-fpm.sock;</span><br><span class="line">	#	# With php-cgi (or other tcp sockets):</span><br><span class="line">		#fastcgi_pass 127.0.0.1:9000;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
 
-<p>Ip访问，应该成功了。</p>
+<p>最后用Ip访问，应该成功了。</p>
+<p>值得注意的是，mysql 8.0+版本登录方式修改为caching_sha2_password，低版本的php并不支持这个登录方式，会导致连接数据库失败，上述7.2版本是没问题的。</p>
 
     
   </div>
