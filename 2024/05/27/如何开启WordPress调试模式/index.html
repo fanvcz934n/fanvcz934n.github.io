@@ -18,6 +18,8 @@
 
 <!-- Website description -->
 
+<meta name="description" content="如何开启WordPress调试模式" />
+
 
 <!-- Website keywords -->
 
@@ -35,7 +37,7 @@
 
 
 <!-- Canonical, good for google search engine -->
-<link rel="canonical" href="http://aiinsight.top/archives/2024/05/" />
+<link rel="canonical" href="http://aiinsight.top/2024/05/27/如何开启WordPress调试模式/" />
 
 <!-- Fancybox styling -->
 
@@ -63,7 +65,7 @@
   window.config = {"leancloud":{"app_id":null,"app_key":null,"server_url":null,"cdn":null},"toc":true,"fancybox":true,"latex":false};
 </script>
   
-  <title>Archives - 2024/5 · AI insight</title>
+  <title>如何开启WordPress调试模式 - AI insight</title>
 
 <meta name="generator" content="Hexo 7.2.0"></head>
 
@@ -119,111 +121,72 @@
     <main id="main" class="main">
       <div class="content-wrapper">
         <div id="content" class="content">
-          
+          <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      如何开启WordPress调试模式
+      
+    </h1>
 
-<section id="archive" class="archive">
+    <div class="post-meta">
+      <span class="post-time">
+        2024-05-27
+      </span>
+      
+      
+      
+    </div>
+  </header>
+
   
-  
-  <div class="archive-title">
-    <span class="archive-post-counter">
-      4 Posts In Total
-    </span>
+
+  <div class="post-content">
+    
+    <p>在WordPress主目录中的WP-config.php文件中加入以下代码:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// Turn on Debugging</span><br><span class="line">define(&#x27;WP_DEBUG&#x27;, TRUE); </span><br><span class="line"></span><br><span class="line">// Yes, log errors please</span><br><span class="line">define( &#x27;WP_DEBUG_LOG&#x27;, TRUE );</span><br><span class="line"></span><br><span class="line">// Let&#x27;s not show errors on the page.</span><br><span class="line">define( &#x27;WP_DEBUG_DISPLAY&#x27;, FALSE ); </span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+
+<p>日志路径:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://[your-website]/wp-content/debug.log</span><br></pre></td></tr></table></figure>
+<p>正式上线之前记得把调试开关关闭即可。</p>
+
+    
   </div>
+
   
+  <!-- Post Copyright -->
+
+    
+
   
 
   
-  
-  
-  
-  
-  
-  <div class="collection-title">
-    <h2 class="archive-year">
-      <a href="/archives/2024" class="archive-year">2024</a>
-    </h2>
-  </div>
-  
-  
-
-  <div class="archive-post">
-    <span class="archive-post-time">
+  <footer class="post-footer">
+    
       
-      05-27
+  <nav class="post-nav">  
       
-    </span>
-    <span class="archive-post-title">
-      <a href="/2024/05/27/%E5%A6%82%E4%BD%95%E5%BC%80%E5%90%AFWordPress%E8%B0%83%E8%AF%95%E6%A8%A1%E5%BC%8F/" class="archive-post-link">
-        如何开启WordPress调试模式
-      </a>
-    </span>
-  </div>
-  
-  
-  
-  
-  
-
-  <div class="archive-post">
-    <span class="archive-post-time">
       
-      05-26
-      
-    </span>
-    <span class="archive-post-title">
-      <a href="/2024/05/26/SSH-%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95%E6%9C%8D%E5%8A%A1%E5%99%A8/" class="archive-post-link">
-        SSH 免密登录服务器
-      </a>
-    </span>
-  </div>
-  
-  
-  
-  
-  
-
-  <div class="archive-post">
-    <span class="archive-post-time">
-      
-      05-26
-      
-    </span>
-    <span class="archive-post-title">
-      <a href="/2024/05/26/Mac%E4%B8%8BMysql-%E9%87%8D%E7%BD%AE%E5%AF%86%E7%A0%81/" class="archive-post-link">
-        Mac下Mysql重置密码
-      </a>
-    </span>
-  </div>
-  
-  
-  
-  
-  
-
-  <div class="archive-post">
-    <span class="archive-post-time">
-      
-      05-25
-      
-    </span>
-    <span class="archive-post-title">
-      <a href="/2024/05/25/Ubuntu%E4%B8%8A%E7%9A%84Nginx%E4%B8%8EWordPress%E5%AE%89%E8%A3%85%E6%96%B9%E6%B3%95/" class="archive-post-link">
-        Ubuntu上的Nginx与WordPress安装方法
-      </a>
-    </span>
-  </div>
-  
-</section>
-
-  
-  <nav class="pagination">  
-      
+      <a class="next" href="/2024/05/26/SSH-%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95%E6%9C%8D%E5%8A%A1%E5%99%A8/">  
+        <span class="next-text nav-default">SSH 免密登录服务器</span>  
+        <span class="prev-text nav-mobile">Next</span>  
+        <i class="iconfont icon-right"></i>  
+      </a>  
       
   </nav>  
   
 
+  </footer>
+  
+
+</article>
         </div>
           
+  <div class="comments" id="comments">  
+      
+  </div>  
+  
 
       </div>
     </main>
@@ -311,6 +274,13 @@
     <div class="back-to-top" id="back-to-top"> <i class="iconfont icon-up"></i> </div>
   </div>
     
+    
+    
+    
+    
+    
+    
+  
 
   
 
