@@ -18,7 +18,7 @@
 
 <!-- Website description -->
 
-<meta name="description" content="ailinks" />
+<meta name="description" content="手动移植WordPress网站" />
 
 
 <!-- Website keywords -->
@@ -37,7 +37,7 @@
 
 
 <!-- Canonical, good for google search engine -->
-<link rel="canonical" href="http://aiinsight.top/ailinks/" />
+<link rel="canonical" href="http://aiinsight.top/2024/06/06/手动移植WordPress网站/" />
 
 <!-- Fancybox styling -->
 
@@ -65,7 +65,7 @@
   window.config = {"leancloud":{"app_id":null,"app_key":null,"server_url":null,"cdn":null},"toc":true,"fancybox":true,"latex":false};
 </script>
   
-  <title>menu.ailinks · AI insight</title>
+  <title>手动移植WordPress网站 - AI insight</title>
 
 <meta name="generator" content="Hexo 7.2.0"></head>
 
@@ -138,16 +138,94 @@
       <div class="content-wrapper">
         <div id="content" class="content">
           <article class="post">
-  <div class="post-content">
-    <h1 id="AI-links"><a href="#AI-links" class="headerlink" title="AI links"></a>AI links</h1><h3 id="角色卡相关"><a href="#角色卡相关" class="headerlink" title="角色卡相关"></a>角色卡相关</h3><p><a href="https://aiinsight.top/html/character-editor.html">AI Character Editor: LLM角色卡编辑器 (Supports both JSON and Character Card image files)</a></p>
-<p><a target="_blank" rel="noopener" href="https://character.ai/">Character AI: 虚拟角色对话网站 (可参考别人编写的角色卡)</a></p>
-<p><a href="https://aiinsight.top/2024/05/27/AI-Characters-W-%E6%A0%BC%E5%BC%8F%E4%B8%8EJson%E6%A0%BC%E5%BC%8F/">AI Character Card Format(Json and W++)</a></p>
-<h3 id="语音相关"><a href="#语音相关" class="headerlink" title="语音相关"></a>语音相关</h3><p><a target="_blank" rel="noopener" href="https://ttsmaker.com/">文字转语音(部分收费)</a></p>
-<h3 id="LLM相关"><a href="#LLM相关" class="headerlink" title="LLM相关"></a>LLM相关</h3><p><a target="_blank" rel="noopener" href="https://github.com/LiLittleCat/awesome-free-chatgpt?tab=readme-ov-file">Free ChatGPT</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/f/awesome-chatgpt-prompts">ChatGPT 英文Prompts</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/PlexPt/awesome-chatgpt-prompts-zh">ChatGPT 中文Prompts</a></p>
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      手动移植WordPress网站
+      
+    </h1>
 
+    <div class="post-meta">
+      <span class="post-time">
+        2024-06-06
+      </span>
+      
+      
+      
+    </div>
+  </header>
+
+  
+
+  <div class="post-content">
+    
+    <ol>
+<li><p><strong>网站文件</strong>：</p>
+<ul>
+<li><strong>WordPress 核心文件</strong>：包括所有的 WordPress 核心文件，如 <code>wp-admin</code>、<code>wp-includes</code> 文件夹及其内容。</li>
+<li><strong>主题文件</strong>：位于 <code>wp-content/themes</code> 目录下，包含你当前使用的主题及任何自定义主题文件。</li>
+<li><strong>插件文件</strong>：位于 <code>wp-content/plugins</code> 目录下，包含所有安装和激活的插件。</li>
+<li><strong>上传文件</strong>：位于 <code>wp-content/uploads</code> 目录下，包含所有的媒体文件（如图片、视频等）。<span id="more"></span></li>
+</ul>
+</li>
+<li><p><strong>数据库</strong>：</p>
+<ul>
+<li><strong>数据库导出文件</strong>：使用 phpMyAdmin 或类似工具，将整个 WordPress 数据库导出为 SQL 文件。这个数据库包含了所有的文章、页面、评论、用户信息、插件设置等。</li>
+</ul>
+</li>
+<li><p><strong>配置文件</strong>：</p>
+<ul>
+<li><strong>wp-config.php 文件</strong>：该文件位于 WordPress 根目录下，包含了数据库连接信息和其他重要配置。</li>
+<li><strong>.htaccess 文件</strong>：如果你有自定义的 .htaccess 文件（通常用于 URL 重写规则等），也需要拷贝。</li>
+</ul>
+</li>
+</ol>
+<p>移植步骤概述：</p>
+<ol>
+<li><strong>备份源网站</strong>：确保备份网站的所有文件和数据库。</li>
+<li><strong>将文件上传到新服务器</strong>：将拷贝的文件上传到新服务器上的相应位置。</li>
+<li><strong>导入数据库</strong>：在新服务器上创建一个新的数据库，并导入之前导出的数据库文件。</li>
+<li><strong>修改配置</strong>：<ul>
+<li>更新 <code>wp-config.php</code> 文件中的数据库连接信息以匹配新服务器的数据库配置。</li>
+<li>根据需要修改 <code>.htaccess</code> 文件。</li>
+</ul>
+</li>
+<li><strong>更新 URL</strong>：<ul>
+<li>如果域名发生变化，需要在数据库中更新 URL，可以使用 phpMyAdmin 或类似工具进行批量替换，或者使用插件如 Search and Replace 进行处理。</li>
+</ul>
+</li>
+<li><strong>测试网站</strong>：确保所有功能正常运行，包括主题、插件和链接等。</li>
+</ol>
+
+    
   </div>
+
+  
+  <!-- Post Copyright -->
+
+    
+
+  
+
+  
+  <footer class="post-footer">
+    
+      
+  <nav class="post-nav">  
+      
+      
+      <a class="next" href="/2024/06/02/%E5%9B%BD%E5%86%85pip%E4%B8%8B%E8%BD%BD%E5%9B%BD%E5%86%85%E6%BA%90%E8%AE%BE%E7%BD%AE/">  
+        <span class="next-text nav-default">国内pip下载国内源设置</span>  
+        <span class="prev-text nav-mobile">Next</span>  
+        <i class="iconfont icon-right"></i>  
+      </a>  
+      
+  </nav>  
+  
+
+  </footer>
+  
+
 </article>
         </div>
           
