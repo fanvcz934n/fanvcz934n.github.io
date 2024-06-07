@@ -143,6 +143,52 @@
   <header class="post-header">
     <h1 class="post-title">
       
+      <a class="post-link" href="/2024/06/07/WordPress%E8%BF%81%E6%9C%8D%E5%8A%A1%E5%99%A8/">WordPress迁服务器</a>
+      
+    </h1>
+
+    <div class="post-meta">
+      <span class="post-time">
+        2024-06-07
+      </span>
+      
+      
+      
+    </div>
+  </header>
+
+  
+
+  <div class="post-content">
+    
+    
+    
+    
+    
+
+    
+    <p>在将WordPress网站迁移到新服务器时，数据库中的IP地址和相关信息需要进行修改。</p>
+<ol>
+<li><p><strong>网站URL和站点地址（Home URL and Site URL）</strong>：<br>在<code>wp_options</code>表中，选项名为<code>siteurl</code>和<code>home</code>的记录需要修改为新服务器的URL。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> wp_options <span class="keyword">SET</span> option_value <span class="operator">=</span> <span class="string">&#x27;http://newsite.com&#x27;</span> <span class="keyword">WHERE</span> option_name <span class="operator">=</span> <span class="string">&#x27;siteurl&#x27;</span>;</span><br><span class="line"><span class="keyword">UPDATE</span> wp_options <span class="keyword">SET</span> option_value <span class="operator">=</span> <span class="string">&#x27;http://newsite.com&#x27;</span> <span class="keyword">WHERE</span> option_name <span class="operator">=</span> <span class="string">&#x27;home&#x27;</span>;</span><br></pre></td></tr></table></figure></li>
+</ol>
+    <div class="read-more">
+      <a href="/2024/06/07/WordPress%E8%BF%81%E6%9C%8D%E5%8A%A1%E5%99%A8/" class="read-more-link">Read more..</a>
+    </div>
+    
+    
+  </div>
+
+  
+
+  
+
+</article>
+  
+  <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      
       <a class="post-link" href="/2024/06/07/mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%81%E7%A7%BBInvalid-default-value-for%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/">mysql数据库迁移Invalid default value for的解决办法</a>
       
     </h1>
@@ -542,52 +588,14 @@
 
 </article>
   
-  <article class="post">
-  <header class="post-header">
-    <h1 class="post-title">
-      
-      <a class="post-link" href="/2024/05/25/Ubuntu%E4%B8%8A%E7%9A%84Nginx%E4%B8%8EWordPress%E5%AE%89%E8%A3%85%E6%96%B9%E6%B3%95/">Ubuntu上的Nginx与WordPress安装方法</a>
-      
-    </h1>
-
-    <div class="post-meta">
-      <span class="post-time">
-        2024-05-25
-      </span>
-      
-      
-      
-    </div>
-  </header>
-
-  
-
-  <div class="post-content">
-    
-    
-    
-    
-    
-
-    
-    <h2 id="系统环境"><a href="#系统环境" class="headerlink" title="系统环境"></a>系统环境</h2><p>Ubuntu 20.04.6 LTS (GNU&#x2F;Linux 5.4.0-153-generic aarch64)</p>
-<h4 id="1-更新-Ubuntu-环境"><a href="#1-更新-Ubuntu-环境" class="headerlink" title="1.更新 Ubuntu 环境"></a>1.更新 Ubuntu 环境</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt upgrade</span><br></pre></td></tr></table></figure>
-    <div class="read-more">
-      <a href="/2024/05/25/Ubuntu%E4%B8%8A%E7%9A%84Nginx%E4%B8%8EWordPress%E5%AE%89%E8%A3%85%E6%96%B9%E6%B3%95/" class="read-more-link">Read more..</a>
-    </div>
-    
-    
-  </div>
-
-  
-
-  
-
-</article>
-  
     
   <nav class="pagination">  
       
+      
+      <a class="next" href="/page/2/">  
+        <span class="next-text">Next</span>  
+        <i class="iconfont icon-right"></i>  
+      </a>  
       
   </nav>  
   

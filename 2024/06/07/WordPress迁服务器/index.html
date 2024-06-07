@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Website mata -->
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<!-- Disable transformation -->
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<!-- Website description -->
+
+<meta name="description" content="WordPress迁服务器" />
+
+
+<!-- Website keywords -->
+
+
+
+
+<!-- Website rss -->
+
+<link rel="alternate" href="/atom.xml" title="AI insight" type="application/atom+xml">
+
+
+<!-- Website favicon -->
+
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3.0.0" />
+
+
+<!-- Canonical, good for google search engine -->
+<link rel="canonical" href="http://aiinsight.top/2024/06/07/WordPress迁服务器/" />
+
+<!-- Fancybox styling -->
+
+<link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+
+
+<!-- MathJax (LaTeX) support -->
+
+
+<!-- Theme styling -->
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=3.0.0" />
+
+<!-- Analytics and push -->
+
+
+
+  
+
+
+
+<!-- LeanCloud Counter -->
+
+
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null,"server_url":null,"cdn":null},"toc":true,"fancybox":true,"latex":false};
+</script>
+  
+  <title>WordPress迁服务器 - AI insight</title>
+
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+  <div class="scrollPercentage"></div>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">AI insight</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+    <a href="/ailinks/">
+      <li class="mobile-menu-item">
+        
+        
+        AI links              </li>
+    </a>
+    
+    <a href="/codelinks/">
+      <li class="mobile-menu-item">
+        
+        
+        Code links              </li>
+    </a>
+    
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+      <div class="logo-wrapper">  
+  <a href="/." class="logo">AI insight</a>  
+</div>  
+  
+<nav class="site-navbar">  
+    
+    <ul id="menu" class="menu">  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/ailinks/">  
+              
+              
+              AI links  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/codelinks/">  
+              
+              
+              Code links  
+              
+          </a>  
+        </li>  
+        
+    </ul>  
+    
+</nav>  
+
+    </header>
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      WordPress迁服务器
+      
+    </h1>
+
+    <div class="post-meta">
+      <span class="post-time">
+        2024-06-07
+      </span>
+      
+      
+      
+    </div>
+  </header>
+
+  
+
+  <div class="post-content">
+    
+    <p>在将WordPress网站迁移到新服务器时，数据库中的IP地址和相关信息需要进行修改。</p>
+<ol>
+<li><p><strong>网站URL和站点地址（Home URL and Site URL）</strong>：<br>在<code>wp_options</code>表中，选项名为<code>siteurl</code>和<code>home</code>的记录需要修改为新服务器的URL。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> wp_options <span class="keyword">SET</span> option_value <span class="operator">=</span> <span class="string">&#x27;http://newsite.com&#x27;</span> <span class="keyword">WHERE</span> option_name <span class="operator">=</span> <span class="string">&#x27;siteurl&#x27;</span>;</span><br><span class="line"><span class="keyword">UPDATE</span> wp_options <span class="keyword">SET</span> option_value <span class="operator">=</span> <span class="string">&#x27;http://newsite.com&#x27;</span> <span class="keyword">WHERE</span> option_name <span class="operator">=</span> <span class="string">&#x27;home&#x27;</span>;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<span id="more"></span>
+<ol start="2">
+<li><p><strong>链接（Links）</strong>：<br>在<code>wp_posts</code>表中，文章内容中的所有旧URL需要替换为新URL。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> wp_posts <span class="keyword">SET</span> post_content <span class="operator">=</span> REPLACE(post_content, <span class="string">&#x27;http://oldsite.com&#x27;</span>, <span class="string">&#x27;http://newsite.com&#x27;</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>自定义菜单（Custom Menus）</strong>：<br>在<code>wp_postmeta</code>表中，自定义菜单中包含的URL也需要替换。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> wp_postmeta <span class="keyword">SET</span> meta_value <span class="operator">=</span> REPLACE(meta_value, <span class="string">&#x27;http://oldsite.com&#x27;</span>, <span class="string">&#x27;http://newsite.com&#x27;</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>其他插件或主题设置</strong>：<br>某些插件和主题可能在数据库中存储了绝对路径或URL，具体表和字段会因插件或主题不同而异。你需要根据具体情况搜索整个数据库进行替换。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> wp_options <span class="keyword">WHERE</span> option_value <span class="keyword">LIKE</span> <span class="string">&#x27;%http://oldsite.com%&#x27;</span>;</span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> wp_postmeta <span class="keyword">WHERE</span> meta_value <span class="keyword">LIKE</span> <span class="string">&#x27;%http://oldsite.com%&#x27;</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>小工具和其他内容</strong>：<br>在<code>wp_widgets</code>表中，包含旧URL的小工具内容也需要替换。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> wp_widgets <span class="keyword">SET</span> widget_options <span class="operator">=</span> REPLACE(widget_options, <span class="string">&#x27;http://oldsite.com&#x27;</span>, <span class="string">&#x27;http://newsite.com&#x27;</span>);</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>以下是通用的SQL查询来查找包含旧URL的所有字段：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> wp_options <span class="keyword">WHERE</span> option_value <span class="keyword">LIKE</span> <span class="string">&#x27;%http://oldsite.com%&#x27;</span>;</span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> wp_posts <span class="keyword">WHERE</span> post_content <span class="keyword">LIKE</span> <span class="string">&#x27;%http://oldsite.com%&#x27;</span>;</span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> wp_postmeta <span class="keyword">WHERE</span> meta_value <span class="keyword">LIKE</span> <span class="string">&#x27;%http://oldsite.com%&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>执行这些查询后，可以相应地更新找到的记录。</p>
+
+    
+  </div>
+
+  
+  <!-- Post Copyright -->
+
+    
+
+  
+
+  
+  <footer class="post-footer">
+    
+      
+  <nav class="post-nav">  
+      
+      
+      <a class="next" href="/2024/06/07/mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%81%E7%A7%BBInvalid-default-value-for%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/">  
+        <span class="next-text nav-default">mysql数据库迁移Invalid default value for的解决办法</span>  
+        <span class="prev-text nav-mobile">Next</span>  
+        <i class="iconfont icon-right"></i>  
+      </a>  
+      
+  </nav>  
+  
+
+  </footer>
+  
+
+</article>
+        </div>
+          
+  <div class="comments" id="comments">  
+      
+  </div>  
+  
+
+      </div>
+    </main>
+    <footer id="footer" class="footer">
+      <!-- Social Links -->
+
+<div class="social-links">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+</div>
+
+
+
+<div class="copyright">
+  <!--span class="power-by">
+    Powered by <a class="hexo-link" target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme -
+    <a class="theme-link" target="_blank" rel="noopener" href="https://github.com/zeed-w-beez/hexo-theme-even">Even</a>
+  </span>
+  <span class="division">|</span>
+  <span class="hosting-info">
+    footer.hosting
+  </span-->
+
+  <span class="copyright-year">
+    <span>
+      
+      &copy;
+      
+      2024      
+    </span>
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+
+    <span class="author">Eric</span>
+  </span>
+
+</div>
+    </footer>
+    <div class="back-to-top" id="back-to-top"> <i class="iconfont icon-up"></i> </div>
+  </div>
+    
+    
+    
+    
+    
+    
+    
+  
+
+  
+
+
+
+
+
+
+
+<script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+
+
+
+<script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+
+
+
+<script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+  <script type="text/javascript" src="/js/src/even.js?v=3.0.0"></script>
+</body>
+
+</html>
