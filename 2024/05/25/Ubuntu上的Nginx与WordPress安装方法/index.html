@@ -187,7 +187,8 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">root /var/www/html/sample.com;</span><br><span class="line">index index.html index.htm index.php; //这里没有php文件要加上index.php</span><br></pre></td></tr></table></figure>
 <p>改php传递配置如下:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># pass PHP scripts to FastCGI server</span><br><span class="line">	#</span><br><span class="line">	location ~ \.php$ &#123;</span><br><span class="line">		include snippets/fastcgi-php.conf;</span><br><span class="line">	#</span><br><span class="line">	#	# With php-fpm (or other unix sockets):</span><br><span class="line">		fastcgi_pass unix:/var/run/php/php7.2-fpm.sock;</span><br><span class="line">	#	# With php-cgi (or other tcp sockets):</span><br><span class="line">		#fastcgi_pass 127.0.0.1:9000;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
-
+<p>重新加载nginx</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nginx -s reload</span><br></pre></td></tr></table></figure>
 <p>最后用Ip访问，应该成功了。</p>
 <p>值得注意的是，mysql 8.0+版本登录方式修改为caching_sha2_password，低版本的php并不支持这个登录方式，会导致连接数据库失败，上述7.2版本是没问题的。</p>
 
