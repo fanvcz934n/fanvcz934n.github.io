@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Website mata -->
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<!-- Disable transformation -->
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<!-- Website description -->
+
+<meta name="description" content="在Linux上备份MySQL数据库和网站" />
+
+
+<!-- Website keywords -->
+
+
+
+
+<!-- Website rss -->
+
+<link rel="alternate" href="/atom.xml" title="AI insight" type="application/atom+xml">
+
+
+<!-- Website favicon -->
+
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3.0.0" />
+
+
+<!-- Canonical, good for google search engine -->
+<link rel="canonical" href="http://aiinsight.top/2024/07/03/在Linux上备份MySQL数据库和网站/" />
+
+<!-- Fancybox styling -->
+
+<link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+
+
+<!-- MathJax (LaTeX) support -->
+
+
+<!-- Theme styling -->
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=3.0.0" />
+
+<!-- Analytics and push -->
+
+
+
+  
+
+
+
+<!-- LeanCloud Counter -->
+
+
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null,"server_url":null,"cdn":null},"toc":true,"fancybox":true,"latex":false};
+</script>
+  
+  <title>在Linux上备份MySQL数据库和网站 - AI insight</title>
+
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+  <div class="scrollPercentage"></div>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">AI insight</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+    <a href="/ailinks/">
+      <li class="mobile-menu-item">
+        
+        
+        AI links              </li>
+    </a>
+    
+    <a href="/codelinks/">
+      <li class="mobile-menu-item">
+        
+        
+        Code links              </li>
+    </a>
+    
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+      <div class="logo-wrapper">  
+  <a href="/." class="logo">AI insight</a>  
+</div>  
+  
+<nav class="site-navbar">  
+    
+    <ul id="menu" class="menu">  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/ailinks/">  
+              
+              
+              AI links  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/codelinks/">  
+              
+              
+              Code links  
+              
+          </a>  
+        </li>  
+        
+    </ul>  
+    
+</nav>  
+
+    </header>
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      在Linux上备份MySQL数据库和网站
+      
+    </h1>
+
+    <div class="post-meta">
+      <span class="post-time">
+        2024-07-03
+      </span>
+      
+      
+      
+    </div>
+  </header>
+
+  
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8Linux%E4%B8%8A%E5%A4%87%E4%BB%BDMySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E5%92%8C%E7%BD%91%E7%AB%99"><span class="toc-number">1.</span> <span class="toc-text">在Linux上备份MySQL数据库和网站</span></a></li></ol>
+    </div>
+  </div>
+  
+
+  <div class="post-content">
+    
+    <h3 id="在Linux上备份MySQL数据库和网站"><a href="#在Linux上备份MySQL数据库和网站" class="headerlink" title="在Linux上备份MySQL数据库和网站"></a>在Linux上备份MySQL数据库和网站</h3><ol>
+<li><p><strong>创建备份脚本</strong></p>
+<p>创建一个备份脚本，例如<code>backup.sh</code>，包含数据库和网站备份：</p>
+</li>
+</ol>
+<span id="more"></span>
+   <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 数据库配置</span></span><br><span class="line">DB_USER=<span class="string">&quot;your_db_user&quot;</span></span><br><span class="line">DB_PASSWORD=<span class="string">&quot;your_db_password&quot;</span></span><br><span class="line">DB_NAME=<span class="string">&quot;your_db_name&quot;</span></span><br><span class="line">BACKUP_DIR=<span class="string">&quot;/path/to/backup/directory&quot;</span></span><br><span class="line">DATE=$(<span class="built_in">date</span> +<span class="string">&quot;%Y%m%d%H%M&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 备份文件名</span></span><br><span class="line">DB_BACKUP_FILE=<span class="string">&quot;<span class="variable">$BACKUP_DIR</span>/<span class="variable">$DB_NAME</span>-<span class="variable">$DATE</span>.sql&quot;</span></span><br><span class="line">SITE_BACKUP_FILE=<span class="string">&quot;<span class="variable">$BACKUP_DIR</span>/website-<span class="variable">$DATE</span>.tar.gz&quot;</span></span><br><span class="line">WEBSITE_DIR=<span class="string">&quot;/path/to/website/directory&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 备份数据库</span></span><br><span class="line">mysqldump -u <span class="variable">$DB_USER</span> -p<span class="variable">$DB_PASSWORD</span> <span class="variable">$DB_NAME</span> &gt; <span class="variable">$DB_BACKUP_FILE</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 检查数据库备份是否成功</span></span><br><span class="line"><span class="keyword">if</span> [ $? -eq 0 ]; <span class="keyword">then</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">&quot;Database backup successful: <span class="variable">$DB_BACKUP_FILE</span>&quot;</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">&quot;Database backup failed!&quot;</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 备份网站文件</span></span><br><span class="line">tar -czf <span class="variable">$SITE_BACKUP_FILE</span> -C <span class="variable">$WEBSITE_DIR</span> .</span><br><span class="line"></span><br><span class="line"><span class="comment"># 检查网站备份是否成功</span></span><br><span class="line"><span class="keyword">if</span> [ $? -eq 0 ]; <span class="keyword">then</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">&quot;Website backup successful: <span class="variable">$SITE_BACKUP_FILE</span>&quot;</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">&quot;Website backup failed!&quot;</span></span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
+
+<p>   将<code>your_db_user</code>、<code>your_db_password</code>、<code>your_db_name</code>、<code>/path/to/backup/directory</code>和<code>/path/to/website/directory</code>替换为实际的数据库用户名、密码、数据库名、备份目录路径和网站目录路径。</p>
+<ol start="2">
+<li><p><strong>设置脚本执行权限</strong></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> +x /path/to/backup.sh</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>配置cron任务</strong></p>
+<p>使用<code>crontab</code>编辑器：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">crontab -e</span><br></pre></td></tr></table></figure>
+
+<p>在crontab文件中添加如下行，设置每天16:30执行备份：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">30 16 * * * /path/to/backup.sh</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>通过以上步骤，你可以在每天16:30定时备份MySQL数据库和网站文件。</p>
+
+    
+  </div>
+
+  
+  <!-- Post Copyright -->
+
+    
+
+  
+
+  
+  <footer class="post-footer">
+    
+      
+  <nav class="post-nav">  
+      
+      
+      <a class="next" href="/2024/06/27/8%E4%B8%AA%E7%AE%80%E5%8D%95%E4%BA%92%E5%8A%A8%E6%96%87%E5%AD%97%E5%B0%8F%E6%B8%B8%E6%88%8F/">  
+        <span class="next-text nav-default">8个简单互动文字小游戏</span>  
+        <span class="prev-text nav-mobile">Next</span>  
+        <i class="iconfont icon-right"></i>  
+      </a>  
+      
+  </nav>  
+  
+
+  </footer>
+  
+
+</article>
+        </div>
+          
+  <div class="comments" id="comments">  
+      
+  </div>  
+  
+
+      </div>
+    </main>
+    <footer id="footer" class="footer">
+      <!-- Social Links -->
+
+<div class="social-links">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+</div>
+
+
+
+<div class="copyright">
+  <!--span class="power-by">
+    Powered by <a class="hexo-link" target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme -
+    <a class="theme-link" target="_blank" rel="noopener" href="https://github.com/zeed-w-beez/hexo-theme-even">Even</a>
+  </span>
+  <span class="division">|</span>
+  <span class="hosting-info">
+    footer.hosting
+  </span-->
+
+  <span class="copyright-year">
+    <span>
+      
+      &copy;
+      
+      2024      
+    </span>
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+
+    <span class="author">Eric</span>
+  </span>
+
+</div>
+    </footer>
+    <div class="back-to-top" id="back-to-top"> <i class="iconfont icon-up"></i> </div>
+  </div>
+    
+    
+    
+    
+    
+    
+    
+  
+
+  
+
+
+
+
+
+
+
+<script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+
+
+
+<script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+
+
+
+<script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+  <script type="text/javascript" src="/js/src/even.js?v=3.0.0"></script>
+</body>
+
+</html>
