@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Website mata -->
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<!-- Disable transformation -->
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<!-- Website description -->
+
+<meta name="description" content="给公司网络工程师写的shell脚本" />
+
+
+<!-- Website keywords -->
+
+
+
+
+<!-- Website rss -->
+
+<link rel="alternate" href="/atom.xml" title="AI insight" type="application/atom+xml">
+
+
+<!-- Website favicon -->
+
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3.0.0" />
+
+
+<!-- Canonical, good for google search engine -->
+<link rel="canonical" href="http://aiinsight.top/2024/07/04/给公司网络工程师写的shell脚本/" />
+
+<!-- Fancybox styling -->
+
+<link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+
+
+<!-- MathJax (LaTeX) support -->
+
+
+<!-- Theme styling -->
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=3.0.0" />
+
+<!-- Analytics and push -->
+
+
+
+  
+
+
+
+<!-- LeanCloud Counter -->
+
+
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null,"server_url":null,"cdn":null},"toc":true,"fancybox":true,"latex":false};
+</script>
+  
+  <title>给公司网络工程师写的shell脚本 - AI insight</title>
+
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+  <div class="scrollPercentage"></div>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">AI insight</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+    <a href="/ailinks/">
+      <li class="mobile-menu-item">
+        
+        
+        AI links              </li>
+    </a>
+    
+    <a href="/codelinks/">
+      <li class="mobile-menu-item">
+        
+        
+        Code links              </li>
+    </a>
+    
+    <a href="/archives/">
+      <li class="mobile-menu-item">
+        
+        
+        Archives              </li>
+    </a>
+    
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+      <div class="logo-wrapper">  
+  <a href="/." class="logo">AI insight</a>  
+</div>  
+  
+<nav class="site-navbar">  
+    
+    <ul id="menu" class="menu">  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/ailinks/">  
+              
+              
+              AI links  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/codelinks/">  
+              
+              
+              Code links  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/archives/">  
+              
+              
+              Archives  
+              
+          </a>  
+        </li>  
+        
+    </ul>  
+    
+</nav>  
+
+    </header>
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      给公司网络工程师写的shell脚本
+      
+    </h1>
+
+    <div class="post-meta">
+      <span class="post-time">
+        2024-07-04
+      </span>
+      
+      
+      
+    </div>
+  </header>
+
+  
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E"><span class="toc-number">1.</span> <span class="toc-text">使用说明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%84%9A%E6%9C%AC%E8%AF%B4%E6%98%8E"><span class="toc-number">2.</span> <span class="toc-text">脚本说明</span></a></li></ol>
+    </div>
+  </div>
+  
+
+  <div class="post-content">
+    
+    <p>领导离职，刚好公司网络管理小哥有需要脚本测试的需求，小哥为人诚恳，很谦虚，值得交朋友，于是写了一个给他。</p>
+<span id="more"></span>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 检查参数数量</span></span><br><span class="line"><span class="keyword">if</span> [ <span class="string">&quot;<span class="variable">$#</span>&quot;</span> -ne 2 ]; <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;Usage: <span class="variable">$0</span> &lt;ip_file_path&gt; &lt;ping_delay_threshold&gt;&quot;</span></span><br><span class="line">    <span class="built_in">exit</span> 1</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line">IP_FILE=<span class="variable">$1</span></span><br><span class="line">DELAY_THRESHOLD=<span class="variable">$2</span></span><br><span class="line">LOG_FILE=<span class="string">&quot;ping_results_<span class="variable">$&#123;DELAY_THRESHOLD&#125;</span>ms.log&quot;</span></span><br><span class="line">THREADS=10</span><br><span class="line"></span><br><span class="line"><span class="comment"># 清空日志文件</span></span><br><span class="line">&gt; <span class="variable">$LOG_FILE</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义ping函数</span></span><br><span class="line"><span class="function"><span class="title">ping_ip</span></span>() &#123;</span><br><span class="line">    <span class="built_in">local</span> ip=<span class="variable">$1</span></span><br><span class="line">    <span class="built_in">local</span> delay_threshold=<span class="variable">$2</span></span><br><span class="line">    <span class="built_in">local</span> result</span><br><span class="line">    <span class="built_in">local</span> delay</span><br><span class="line">    <span class="built_in">local</span> status</span><br><span class="line">    <span class="built_in">local</span> datetime</span><br><span class="line">    <span class="built_in">local</span> output=<span class="string">&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> &#123;1..5&#125;; <span class="keyword">do</span></span><br><span class="line">        <span class="keyword">if</span> [[ <span class="string">&quot;<span class="variable">$OSTYPE</span>&quot;</span> == <span class="string">&quot;darwin&quot;</span>* ]]; <span class="keyword">then</span></span><br><span class="line">            result=$(ping -c 1 -W 1000 <span class="variable">$ip</span> 2&gt;&amp;1)</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            result=$(ping -c 1 -W 1 <span class="variable">$ip</span> 2&gt;&amp;1)</span><br><span class="line">        <span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line">        datetime=$(<span class="built_in">date</span> <span class="string">&#x27;+%Y-%m-%d %H:%M:%S&#x27;</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> [[ $? -ne 0 ]]; <span class="keyword">then</span></span><br><span class="line">            status=<span class="string">&quot;TIMEOUT&quot;</span></span><br><span class="line">            output+=<span class="string">&quot;<span class="variable">$datetime</span> <span class="variable">$ip</span> <span class="variable">$status</span>\n&quot;</span></span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            delay=$(awk -F<span class="string">&#x27;time=&#x27;</span> <span class="string">&#x27;/time=/&#123;print $2+0&#125;&#x27;</span> &lt;&lt;&lt; <span class="string">&quot;<span class="variable">$result</span>&quot;</span>)</span><br><span class="line">            <span class="keyword">if</span> (( $(awk &quot;BEGIN &#123;print (<span class="variable">$delay</span> &gt; <span class="variable">$delay_threshold</span>)&#125;&quot;) )); <span class="keyword">then</span></span><br><span class="line">                status=<span class="string">&quot;EXCEEDED&quot;</span></span><br><span class="line">                output+=<span class="string">&quot;<span class="variable">$datetime</span> <span class="variable">$ip</span> <span class="variable">$delay</span> ms <span class="variable">$status</span>\n&quot;</span></span><br><span class="line">            <span class="keyword">fi</span></span><br><span class="line">        <span class="keyword">fi</span></span><br><span class="line">    <span class="keyword">done</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> [[ -n <span class="string">&quot;<span class="variable">$output</span>&quot;</span> ]]; <span class="keyword">then</span></span><br><span class="line">        <span class="built_in">echo</span> -e <span class="string">&quot;<span class="variable">$output</span>&quot;</span> &gt;&gt; <span class="variable">$LOG_FILE</span></span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> -f ping_ip</span><br><span class="line"><span class="built_in">export</span> LOG_FILE</span><br><span class="line"><span class="built_in">export</span> DELAY_THRESHOLD</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用xargs和&amp;实现多线程</span></span><br><span class="line"><span class="built_in">cat</span> <span class="variable">$IP_FILE</span> | xargs -n 1 -P <span class="variable">$THREADS</span> -I &#123;&#125; bash -c <span class="string">&#x27;ping_ip &quot;&#123;&#125;&quot; &#x27;</span><span class="string">&quot;<span class="variable">$DELAY_THRESHOLD</span>&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;Ping completed. Results are in <span class="variable">$LOG_FILE</span>&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h3><ol>
+<li>将上述脚本保存为 <code>ping_script.sh</code>。</li>
+<li>给予脚本执行权限： <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> +x ping_script.sh</span><br></pre></td></tr></table></figure></li>
+<li>运行脚本，并提供两个参数：IP文件路径和ping延迟上限： <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./ping_script.sh /mnt/data/ips(1).txt 100</span><br></pre></td></tr></table></figure>
+ 其中 <code>/mnt/data/ips(1).txt</code> 是IP文本文件的路径，<code>100</code> 是ping的延迟上限（单位：毫秒）。</li>
+</ol>
+<h3 id="脚本说明"><a href="#脚本说明" class="headerlink" title="脚本说明"></a>脚本说明</h3><ul>
+<li><strong>日志文件名</strong>：日志文件名动态生成，包含用户输入的延迟上限参数，格式为 <code>ping_results_&lt;DELAY_THRESHOLD&gt;ms.log</code>。</li>
+<li><strong>ping_ip函数</strong>：针对 macOS 和 Linux 的 <code>ping</code> 命令选项有所不同。macOS 使用 <code>-W 1000</code>（单位是毫秒），而 Linux 使用 <code>-W 1</code>（单位是秒）。</li>
+<li><strong>统一输出格式</strong>：对于每个IP地址，累计5次ping的结果，然后一次性打印到日志文件中。如果延时不超过上限，则不打印结果。记录的格式为：时间 IP 延迟时间&#x2F;状态。</li>
+<li><strong>多线程执行</strong>：使用 <code>xargs</code> 实现多线程操作。<code>-P $THREADS</code> 参数指定并发线程数，<code>-n 1</code> 参数指定每次处理一个IP。</li>
+</ul>
+
+    
+  </div>
+
+  
+  <!-- Post Copyright -->
+
+    
+
+  
+
+  
+  <footer class="post-footer">
+    
+      
+  <nav class="post-nav">  
+      
+      
+      <a class="next" href="/2024/07/03/%E5%9C%A8Linux%E4%B8%8A%E5%A4%87%E4%BB%BDMySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E5%92%8C%E7%BD%91%E7%AB%99/">  
+        <span class="next-text nav-default">在Linux上备份MySQL数据库和网站</span>  
+        <span class="prev-text nav-mobile">Next</span>  
+        <i class="iconfont icon-right"></i>  
+      </a>  
+      
+  </nav>  
+  
+
+  </footer>
+  
+
+</article>
+        </div>
+          
+  <div class="comments" id="comments">  
+      
+  </div>  
+  
+
+      </div>
+    </main>
+    <footer id="footer" class="footer">
+      <!-- Social Links -->
+
+<div class="social-links">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+</div>
+
+
+
+<div class="copyright">
+  <!--span class="power-by">
+    Powered by <a class="hexo-link" target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme -
+    <a class="theme-link" target="_blank" rel="noopener" href="https://github.com/zeed-w-beez/hexo-theme-even">Even</a>
+  </span>
+  <span class="division">|</span>
+  <span class="hosting-info">
+    footer.hosting
+  </span-->
+
+  <span class="copyright-year">
+    <span>
+      
+      &copy;
+      
+      2024      
+    </span>
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+
+    <span class="author">Eric</span>
+  </span>
+
+</div>
+    </footer>
+    <div class="back-to-top" id="back-to-top"> <i class="iconfont icon-up"></i> </div>
+  </div>
+    
+    
+    
+    
+    
+    
+    
+  
+
+  
+
+
+
+
+
+
+
+<script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+
+
+
+<script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+
+
+
+<script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+  <script type="text/javascript" src="/js/src/even.js?v=3.0.0"></script>
+</body>
+
+</html>
