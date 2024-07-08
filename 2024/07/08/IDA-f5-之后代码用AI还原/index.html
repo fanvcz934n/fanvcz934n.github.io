@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Website mata -->
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<!-- Disable transformation -->
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<!-- Website description -->
+
+<meta name="description" content="IDA f5 之后代码用AI还原" />
+
+
+<!-- Website keywords -->
+
+
+
+
+<!-- Website rss -->
+
+<link rel="alternate" href="/atom.xml" title="AI insight" type="application/atom+xml">
+
+
+<!-- Website favicon -->
+
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3.0.0" />
+
+
+<!-- Canonical, good for google search engine -->
+<link rel="canonical" href="http://aiinsight.top/2024/07/08/IDA-f5-之后代码用AI还原/" />
+
+<!-- Fancybox styling -->
+
+<link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+
+
+<!-- MathJax (LaTeX) support -->
+
+
+<!-- Theme styling -->
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=3.0.0" />
+
+<!-- Analytics and push -->
+
+
+
+  
+
+
+
+<!-- LeanCloud Counter -->
+
+
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null,"server_url":null,"cdn":null},"toc":true,"fancybox":true,"latex":false};
+</script>
+  
+  <title>IDA f5 之后代码用AI还原 - AI insight</title>
+
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+  <div class="scrollPercentage"></div>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">AI insight</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+    <a href="/ailinks/">
+      <li class="mobile-menu-item">
+        
+        
+        AI links              </li>
+    </a>
+    
+    <a href="/codelinks/">
+      <li class="mobile-menu-item">
+        
+        
+        Code links              </li>
+    </a>
+    
+    <a href="/archives/">
+      <li class="mobile-menu-item">
+        
+        
+        Archives              </li>
+    </a>
+    
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+      <div class="logo-wrapper">  
+  <a href="/." class="logo">AI insight</a>  
+</div>  
+  
+<nav class="site-navbar">  
+    
+    <ul id="menu" class="menu">  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/ailinks/">  
+              
+              
+              AI links  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/codelinks/">  
+              
+              
+              Code links  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/archives/">  
+              
+              
+              Archives  
+              
+          </a>  
+        </li>  
+        
+    </ul>  
+    
+</nav>  
+
+    </header>
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      IDA f5 之后代码用AI还原
+      
+    </h1>
+
+    <div class="post-meta">
+      <span class="post-time">
+        2024-07-08
+      </span>
+      
+      
+      
+    </div>
+  </header>
+
+  
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#f5%E4%BC%AA%E4%BB%A3%E7%A0%81"><span class="toc-number">1.</span> <span class="toc-text">f5伪代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cpp"><span class="toc-number">2.</span> <span class="toc-text">cpp</span></a></li></ol>
+    </div>
+  </div>
+  
+
+  <div class="post-content">
+    
+    <p>本文针对android 的JNI代码进行还原。</p>
+<span id="more"></span>
+<h2 id="f5伪代码"><a href="#f5伪代码" class="headerlink" title="f5伪代码"></a>f5伪代码</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">__int64 __fastcall Java_com_adse_netbridge_NetBridgeService_jni_1init(__int64 a1, __int64 a2, int a3) &#123;</span><br><span class="line">    int v3; // w20</span><br><span class="line">    __int64 v4; // x0</span><br><span class="line">    __int64 v5; // x19</span><br><span class="line">    unsigned int * v6; // x20</span><br><span class="line">    unsigned int * v7; // x0</span><br><span class="line">    unsigned int v8; // w20</span><br><span class="line">    __int64 v9; // x0</span><br><span class="line">    __int64 result; // x0</span><br><span class="line">    int v11; // w0</span><br><span class="line">    unsigned int * v12; // x0</span><br><span class="line">    unsigned int v13; // w20</span><br><span class="line">    __int64 v14; // x0</span><br><span class="line">    int v15; // w0</span><br><span class="line">    unsigned int * v16; // x0</span><br><span class="line">    unsigned int v17; // w20</span><br><span class="line">    __int64 v18; // x0</span><br><span class="line">    v3 = a3;</span><br><span class="line">    v4 = calloc(1LL, 64LL); * (_DWORD * )(v4 + 52) = v3;</span><br><span class="line">    v5 = v4;</span><br><span class="line">    loglevel = 5;</span><br><span class="line">    socks5_addr = 0;</span><br><span class="line">    socks5_port = 0;</span><br><span class="line">    socks5_username = 0;</span><br><span class="line">    socks5_password = 0;</span><br><span class="line">    pcap_file = 0LL;</span><br><span class="line">    if ((unsigned int) pthread_mutex_init()) log_android(6LL, &quot;pthread_mutex_init failed&quot;);</span><br><span class="line">    v6 = (unsigned int * )(v5 + 40);</span><br><span class="line">    if ((unsigned int) pipe((int * )(v5 + 40))) &#123;</span><br><span class="line">        v7 = (unsigned int * ) __errno();</span><br><span class="line">        v8 = *v7;</span><br><span class="line">        v9 = strerror( * v7);</span><br><span class="line">        log_android(6LL, &quot;Create pipe error %d: %s&quot;, v8, v9);</span><br><span class="line">        result = v5;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        v11 = fcntl( * v6, 3LL, 0LL);</span><br><span class="line">        if (v11 &amp; 0x80000000 || fcntl( * v6, 4LL, v11 | 0x800u) &amp; 0x80000000) &#123;</span><br><span class="line">            v12 = (unsigned int * ) __errno();</span><br><span class="line">            v13 = *v12;</span><br><span class="line">            v14 = strerror(v12);</span><br><span class="line">            log_android(6LL, &quot;fcntl pipefds[%d] O_NONBLOCK error %d: %s&quot;, 0LL, v13, v14);</span><br><span class="line">        &#125;</span><br><span class="line">        v15 = fcntl((unsigned int)(v5 + 44), 3LL, 0LL);</span><br><span class="line">        if (v15 &amp; 0x80000000 || fcntl((unsigned int * )(v5 + 44), 4LL, v15 | 0x800u) &amp; 0x80000000) &#123;</span><br><span class="line">            v16 = (unsigned int * ) __errno();</span><br><span class="line">            v17 = *v16;</span><br><span class="line">            v18 = strerror( * v16);</span><br><span class="line">            log_android(6LL, &quot;fcntl pipefds[%d] O_NONBLOCK error %d: %s&quot;, 1LL, v17, v18);</span><br><span class="line">            result = v5;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            result = v5;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="cpp"><a href="#cpp" class="headerlink" title="cpp"></a>cpp</h2><p>理解了！下面是带有中文注释的完整 JNI 函数代码：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;jni.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;fcntl.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;errno.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 假设这些是全局变量，在其他地方有声明和定义</span></span><br><span class="line"><span class="type">int</span> loglevel;</span><br><span class="line"><span class="type">int</span> socks5_addr;</span><br><span class="line"><span class="type">int</span> socks5_port;</span><br><span class="line"><span class="type">char</span> *socks5_username;</span><br><span class="line"><span class="type">char</span> *socks5_password;</span><br><span class="line"><span class="type">char</span> *pcap_file;</span><br><span class="line"></span><br><span class="line"><span class="function">JNIEXPORT jlong JNICALL <span class="title">Java_com_adse_netbridge_NetBridgeService_jni_1init</span><span class="params">(JNIEnv *env, jobject obj, jlong a1, jlong a2, jint a3)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 获取参数 a3 的值</span></span><br><span class="line">    <span class="type">int</span> v3 = a3;</span><br><span class="line">    <span class="comment">// 分配一个大小为 64 字节的内存块，并初始化为 0</span></span><br><span class="line">    jlong v4 = (jlong)<span class="built_in">calloc</span>(<span class="number">1</span>, <span class="number">64</span>);</span><br><span class="line">    <span class="keyword">if</span> (v4 == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="comment">// 处理内存分配失败的情况</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 将参数 a3 的值存储在分配的内存块中的偏移位置为 52 字节处</span></span><br><span class="line">    *(<span class="type">int</span> *)((<span class="type">char</span> *)v4 + <span class="number">52</span>) = v3;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 初始化全局变量</span></span><br><span class="line">    loglevel = <span class="number">5</span>;</span><br><span class="line">    socks5_addr = <span class="number">0</span>;</span><br><span class="line">    socks5_port = <span class="number">0</span>;</span><br><span class="line">    socks5_username = <span class="literal">NULL</span>;</span><br><span class="line">    socks5_password = <span class="literal">NULL</span>;</span><br><span class="line">    pcap_file = <span class="literal">NULL</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 初始化互斥锁（如果需要，请根据实际情况修改）</span></span><br><span class="line">    <span class="comment">// if (pthread_mutex_init(...) != 0) &#123;</span></span><br><span class="line">    <span class="comment">//     log_android(6, &quot;pthread_mutex_init failed&quot;);</span></span><br><span class="line">    <span class="comment">// &#125;</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 创建一个管道</span></span><br><span class="line">    <span class="type">int</span> pipefds[<span class="number">2</span>];</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">pipe</span>(pipefds) != <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="type">int</span> error = errno;</span><br><span class="line">        <span class="type">char</span> *error_msg = <span class="built_in">strerror</span>(error);</span><br><span class="line">        <span class="comment">// 处理管道创建失败的情况</span></span><br><span class="line">        <span class="comment">// log_android(6, &quot;Create pipe error %d: %s&quot;, error, error_msg);</span></span><br><span class="line">        <span class="built_in">free</span>((<span class="type">void</span> *)v4);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 将管道的第一个描述符设置为非阻塞模式</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">fcntl</span>(pipefds[<span class="number">0</span>], F_SETFL, O_NONBLOCK) &lt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="type">int</span> error = errno;</span><br><span class="line">        <span class="type">char</span> *error_msg = <span class="built_in">strerror</span>(error);</span><br><span class="line">        <span class="comment">// 处理 fcntl 错误</span></span><br><span class="line">        <span class="comment">// log_android(6, &quot;fcntl pipefds[0] O_NONBLOCK error %d: %s&quot;, error, error_msg);</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 将管道的第二个描述符设置为非阻塞模式</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">fcntl</span>(pipefds[<span class="number">1</span>], F_SETFL, O_NONBLOCK) &lt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="type">int</span> error = errno;</span><br><span class="line">        <span class="type">char</span> *error_msg = <span class="built_in">strerror</span>(error);</span><br><span class="line">        <span class="comment">// 处理 fcntl 错误</span></span><br><span class="line">        <span class="comment">// log_android(6, &quot;fcntl pipefds[1] O_NONBLOCK error %d: %s&quot;, error, error_msg);</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 返回分配的内存块地址作为 jlong 类型的返回值</span></span><br><span class="line">    <span class="keyword">return</span> v4;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    
+  </div>
+
+  
+  <!-- Post Copyright -->
+
+    
+
+  
+
+  
+  <footer class="post-footer">
+    
+      
+  <nav class="post-nav">  
+      
+      
+      <a class="next" href="/2024/07/04/%E7%BB%99%E5%85%AC%E5%8F%B8%E7%BD%91%E7%BB%9C%E5%B7%A5%E7%A8%8B%E5%B8%88%E5%86%99%E7%9A%84shell%E8%84%9A%E6%9C%AC/">  
+        <span class="next-text nav-default">给公司网络工程师写的shell脚本</span>  
+        <span class="prev-text nav-mobile">Next</span>  
+        <i class="iconfont icon-right"></i>  
+      </a>  
+      
+  </nav>  
+  
+
+  </footer>
+  
+
+</article>
+        </div>
+          
+  <div class="comments" id="comments">  
+      
+  </div>  
+  
+
+      </div>
+    </main>
+    <footer id="footer" class="footer">
+      <!-- Social Links -->
+
+<div class="social-links">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+</div>
+
+
+
+<div class="copyright">
+  <!--span class="power-by">
+    Powered by <a class="hexo-link" target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme -
+    <a class="theme-link" target="_blank" rel="noopener" href="https://github.com/zeed-w-beez/hexo-theme-even">Even</a>
+  </span>
+  <span class="division">|</span>
+  <span class="hosting-info">
+    footer.hosting
+  </span-->
+
+  <span class="copyright-year">
+    <span>
+      
+      &copy;
+      
+      2024      
+    </span>
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+
+    <span class="author">Eric</span>
+  </span>
+
+</div>
+    </footer>
+    <div class="back-to-top" id="back-to-top"> <i class="iconfont icon-up"></i> </div>
+  </div>
+    
+    
+    
+    
+    
+    
+    
+  
+
+  
+
+
+
+
+
+
+
+<script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+
+
+
+<script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+
+
+
+<script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+  <script type="text/javascript" src="/js/src/even.js?v=3.0.0"></script>
+</body>
+
+</html>
